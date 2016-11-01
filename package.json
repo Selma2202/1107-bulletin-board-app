@@ -1,0 +1,22 @@
+{
+  "name": "1107-bulletin-board-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Selma2202/1107-bulletin-board-app.git"
+  },
+  "author": "Selma",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Selma2202/1107-bulletin-board-app/issues"
+  },
+  "homepage": "https://github.com/Selma2202/1107-bulletin-board-app#readme",
+  "dependencies": {
+    "pg": "^6.1.0"
+  }
+}
