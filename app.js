@@ -30,14 +30,12 @@ app.get ('/form', (request, response) => {
 //Make form page work:
 app.post ('/form', (req, resp) => {
 	pg.connect('postgres://postgres:postgres@localhost/bulletinboard', function(err, client, done) {//change to environment variable later on.
-
+		if (err) throw err
   		//add a new entry
-  		client.query(`insert into messages 
-  			(title, body) 
-  			values 
-  			('` + req.body.title + `', '` + req.body.body + `')`, function(err, result) {
+  		client.query("insert into messages (title, body, datenow) values ('" + req.body.title + "', '" + req.body.body + "', '" + Date.now() + "')", function(err, result) {
     			//in terminal, shows: 'INSERT: 1'
     			console.log(`${result.command}: ${result.rowCount}`);
+    			if (err) throw err
 			    done();
 			    pg.end();
 			});
@@ -54,7 +52,7 @@ app.get ('/show', (req, resp) => {
 	pg.connect('postgres://postgres:postgres@localhost/bulletinboard', function(err, client, done) {//change to environment variable later on.
 
   		//select all entries
-  		client.query('select * from messages', function(err, result) { 
+  		client.query('select * from messages order by datenow desc', function(err, result) { 
   			console.log(result.rows[2].title)
   			done();
 			pg.end();
