@@ -6,41 +6,55 @@ html
 		meta(name="viewport" content="width=device-width, initial-scale=1.0")
 		link(rel='stylesheet', href='main.css')
 	body
-		div.container
-			div.row
-				div(class='col s12')
-					h1 This is the form, this is where it happens
-				div(class='col s12')
-					h3 Here, we will show the actual form
-					p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo	consequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat nonproident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					br
-					table(id="formtable")
-						form(method='post', action= '/')
-							//-input(type='hidden', name='_method', value='PUT')
-							tr
-								td
-									label Rating: 
-								td
-									input(name='rating', type='number', id='rating', placeholder = 'Rate this image', required, autocomplete="off" min="0" max="10"	)
-							tr
-								td
-									label Title: 
-								td
-									input(name='title', type='text', id='title', placeholder = 'Title of your message', required, autocomplete="off")
-							tr
-								td
-									label Message: 
-								td
-									input(name='body', type="text", id='body', placeholder = 'Leave us a message!', required,  autocomplete="off")
-							tr
-								td
-									input(type='Submit', value='Submit', class='button')
-									input(type="reset" value="Reset", class='button', id='resetbutton')
+		nav
+			div.nav-wrapper
+				a#logo.brand-logo RATE THE IMAGE
+				ul.right
+					li
+						a( href="/" ) Home
+					li
+						a Contact
+		div#header.valign-wrapper
+			div.row.valign
+				div.col.l12
+					h1.center RATE THE IMAGE
+		main
+			div.container
+				div.row
+					div(class='col s12')
+						div#topcard.card
+							div.card-content
+								div
+									img(id="image", src="/cat1.jpg")
+								br
+								h3 Now rate it!
+								table(id="formtable")
+									form(method='post', action= '/')
+										//-input(type='hidden', name='_method', value='PUT')
+										tr
+											td
+												label Rating: 
+											td
+												input(name='rating', type='number', id='rating', placeholder = 'Rate this image', required, autocomplete="off" min="0" max="10"	)
+										tr
+											td
+												label Title: 
+											td
+												input(name='title', type='text', id='title', placeholder = 'Title of your message', required, autocomplete="off")
+										tr
+											td
+												label Message: 
+											td
+												input(name='body', type="text", id='body', placeholder = 'Leave us a message!', required,  autocomplete="off")
+										tr
+											td
+												input(type='Submit', value='Submit', class='button')
+												input(type="reset" value="Reset", class='button', id='resetbutton')
 
-					a(href='index')
-						p HOME
-					a(href='show')
-						p SHOW ENTRIES
+								a(href='index')
+									p HOME
+								a(href='show')
+									p SHOW ENTRIES
 
 
 

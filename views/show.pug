@@ -6,33 +6,37 @@ html
 		meta(name="viewport" content="width=device-width, initial-scale=1.0")
 		link(rel='stylesheet', href='main.css')
 	body
-		div.container
-			div.row
-				div(class='col s12')
-					h1 Guestbook
-				div(class='col s12')
-					h3 What everybody else wrote
-					p All crap, unfortunately. See if this works
-					//- each thing in data
-					//- 	p #{avg}
+		nav
+			div.nav-wrapper
+				a#logo.brand-logo RATE THE IMAGE
+				ul.right
+					li
+						a( href="/" ) Home
+					li
+						a Contact
+		div#header.valign-wrapper
+			div.row.valign
+				div.col.l12
+					h1.center PREVIOUS RATINGS
+		main
+			div.container
+				div.row
+					div(class='col s12')
+						div#topcard.card
+							div.card-content
+								div
+								h3 Average rating:
+								p This image received a rating of AVERAGE HERE
+								br
+								h3 What you think
+								
+								//- each thing in data
+								//- 	p #{avg}
 
-					each thing in data
-						p#showTitle #{thing.title} - #{thing.rating}
-						p#showBody #{thing.body}
-						br
-
-
-
-					//- - for( var i = 0; i < data.length; i++ )
-					//- 	// var textbody = result.rows[i]
-					//- 	p data[i].title
-					
-					//- br
-
-					a(href='index')
-						p HOME
-					a(href='form')
-						p FORM
+								each thing in data
+									p#showTitle #{thing.title} - #{thing.rating}
+									p#showBody #{thing.body}
+									br
 
 
 
@@ -41,3 +45,45 @@ html
 
 		script(type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js")
 		script(type="text/javascript" src="materialize-css/dist/js/materialize.min.js")
+
+
+
+
+
+
+	//- body
+	//- 	nav
+	//- 		div.nav-wrapper
+	//- 			a#logo.brand-logo RATE THIS PICTURE
+	//- 			ul.right
+	//- 				li
+	//- 					a( href="/" ) Home
+	//- 				li
+	//- 					a Contact
+	//- 	div.container
+	//- 		div.row
+	//- 			div(class='col s12')
+	//- 				h1 Guestbook
+	//- 			div(class='col s12')
+					
+
+
+
+	//- 				//- - for( var i = 0; i < data.length; i++ )
+	//- 				//- 	// var textbody = result.rows[i]
+	//- 				//- 	p data[i].title
+					
+	//- 				//- br
+
+	//- 				a(href='index')
+	//- 					p HOME
+	//- 				a(href='form')
+	//- 					p FORM
+
+
+
+
+
+
+	//- 	script(type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js")
+	//- 	script(type="text/javascript" src="materialize-css/dist/js/materialize.min.js")

@@ -1,10 +1,17 @@
 body {
-	background-color: yellow;
+	background-color: #F8BBD0;
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+p {
+	color: #212121;
 }
 
 .container {
-	background-color: pink;
-	margin: 30px;
+	background-color: #F8BBD0;
+	margin: auto;
 	padding: 30px;
 }
 
@@ -18,4 +25,46 @@ body {
 
 .button {
 	align-items: right;
+}
+
+nav, footer.page-footer {
+	background-color: #C2185B;
+}
+
+#logo {
+	padding-left: 10px;
+}
+
+#header {
+	min-height: 400px;
+	background-color: #E91E63;
+	background-image: url('catbackground3.png');
+	/*background-position: center;*/
+	background-repeat: repeat;
+	/*background-size: cover;*/
+}
+
+main {
+	flex: 1 0 auto;
+}
+
+#topcard {
+	margin-top: -120px;
+}
+
+label {
+	color: #757575;
+}
+
+#image {
+	/*min-height: 400px;*/
+	width: 100%;
+	/*background-color: grey;*/
+	/*background-image: url('/http://cdn.playbuzz.com/cdn/0079c830-3406-4c05-a5c1-bc43e8f01479/7dd84d70-768b-492b-88f7-a6c70f2db2e9.jpg');*/
+	/*background-position: center;*/
+	/*background-size: cover;*/
+}
+
+h1 {
+	color: #757575;
 }
