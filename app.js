@@ -16,19 +16,19 @@ app.set ('views', __dirname + '/views')
 
 
 //Create an index page:
-app.get ('/index', (request, response) => {
+// app.get ('/index', (request, response) => {
+// 	response.render('index')
+// 	console.log('\nThe browser will now display the home page.')
+// })
+
+//Create a home/form page:
+app.get ('/', (request, response) => {
 	response.render('index')
 	console.log('\nThe browser will now display the home page.')
 })
 
-//Create a form page:
-app.get ('/form', (request, response) => {
-	response.render('form')
-	console.log('\nThe browser will now display the form.')
-})
-
-//Make form page work:
-app.post ('/form', (req, resp) => {
+//Make home/form page work:
+app.post ('/', (req, resp) => {
 	pg.connect('postgres://postgres:postgres@localhost/bulletinboard', function(err, client, done) {//change to environment variable later on.
 		if (err) throw err
   		//add a new entry
@@ -56,6 +56,7 @@ app.get ('/show', (req, resp) => {
   			done();
 			pg.end();
 			let reactions = result.rows 
+			//I have made a variable of it, since I want to send more data, namely also an average. maybe I should put that in a variable as well, so that's why I haven't yet.
 
 			resp.render('show', {data: reactions}) //renders to the page showing all entries
   		});
