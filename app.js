@@ -34,7 +34,21 @@ app.post ('/form', (req, resp) => {
 	let	title = req.body.title
 	let body = req.body.body
 
-	console.log (title + ' ' + body)
+	console.log (title + ' ' + body)//this works in the console
+
+	pg.connect('postgres://postgres:postgres@localhost/bulletinboard', function(err, client, done) {//change to environment variable later on.
+  		//add a new entry
+  		client.query(`insert into messages 
+  			(title, body) 
+  			values 
+  			('` + title + `', '` + body + `')`, function(err, result) {
+    			//should print 'INSERT: 1'
+    			console.log(`${result.command}: ${result.rowCount}`);
+
+			    done();
+			    pg.end();
+			});
+  	});
 
 	resp.redirect('show')
 
