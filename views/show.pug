@@ -13,9 +13,11 @@ html
 				div(class='col s12')
 					h3 What everybody else wrote
 					p All crap, unfortunately. See if this works
+					//- each thing in data
+					//- 	p #{avg}
 
 					each thing in data
-						p#showTitle #{thing.title}
+						p#showTitle #{thing.title} - #{thing.rating}
 						p#showBody #{thing.body}
 						br
 

@@ -32,7 +32,7 @@ app.post ('/form', (req, resp) => {
 	pg.connect('postgres://postgres:postgres@localhost/bulletinboard', function(err, client, done) {//change to environment variable later on.
 		if (err) throw err
   		//add a new entry
-  		client.query("insert into messages (title, body, datenow) values ('" + req.body.title + "', '" + req.body.body + "', '" + Date.now() + "')", function(err, result) {
+  		client.query("insert into messages (title, body, datenow, rating) values ($1,$2,$3, $4)", [req.body.title, req.body.body, Date.now(), req.body.rating], function(err, result) {
     			//in terminal, shows: 'INSERT: 1'
     			console.log(`${result.command}: ${result.rowCount}`);
     			if (err) throw err
@@ -52,12 +52,19 @@ app.get ('/show', (req, resp) => {
 	pg.connect('postgres://postgres:postgres@localhost/bulletinboard', function(err, client, done) {//change to environment variable later on.
 
   		//select all entries
-  		client.query('select * from messages order by datenow desc', function(err, result) { 
-  			console.log(result.rows[2].title)
+  			client.query('select * from messages order by datenow desc', function(err, result) { 
   			done();
 			pg.end();
-			resp.render('show', {data: result.rows}) //renders to the page showing all entries
+			let reactions = result.rows 
+
+			resp.render('show', {data: reactions}) //renders to the page showing all entries
   		});
+
+  	// 	client.query('select avg(rating) from messages;', function(err, result) { 
+  	// 		done();
+			// pg.end();
+			// resp.render('show', {avg: result}) //renders to the page showing all entries
+  	// 	});
   		
 			    
   	});
@@ -82,3 +89,4 @@ app.get ('/show', (req, resp) => {
 app.listen (8000, () => {
 	console.log('We are listening on port 8000')
 })
+

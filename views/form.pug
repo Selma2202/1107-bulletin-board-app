@@ -19,17 +19,23 @@ html
 							//-input(type='hidden', name='_method', value='PUT')
 							tr
 								td
+									label Rating: 
+								td
+									input(name='rating', type='number', id='rating', placeholder = 'Rate this image', required, autocomplete="off" min="0" max="10"	)
+							tr
+								td
 									label Title: 
 								td
-									input(name='title', type='text', id='title', placeholder = 'Title of your message' required autocomplete="off")
+									input(name='title', type='text', id='title', placeholder = 'Title of your message', required, autocomplete="off")
 							tr
 								td
 									label Message: 
 								td
-									input(name='body', type="text", id='body', placeholder = 'Leave us a message!' required autocomplete="off")
+									input(name='body', type="text", id='body', placeholder = 'Leave us a message!', required,  autocomplete="off")
 							tr
 								td
 									input(type='Submit', value='Submit', class='button')
+									input(type="reset" value="Reset", class='button', id='resetbutton')
 
 					a(href='index')
 						p HOME

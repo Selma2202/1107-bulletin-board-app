@@ -11,3 +11,11 @@ body {
 #showTitle {
 	font-weight: bold;	
 }
+
+#resetbutton {
+	margin-left: 30px;
+}
+
+.button {
+	align-items: right;
+}
