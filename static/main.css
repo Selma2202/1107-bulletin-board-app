@@ -8,3 +8,6 @@ body {
 	padding: 30px;
 }
 
+#showTitle {
+	font-weight: bold;	
+}

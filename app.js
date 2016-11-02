@@ -29,38 +29,54 @@ app.get ('/form', (request, response) => {
 
 //Make form page work:
 app.post ('/form', (req, resp) => {
-
-	// Set end amount prop and calculate total duration
-	let	title = req.body.title
-	let body = req.body.body
-
-	console.log (title + ' ' + body)//this works in the console
-
 	pg.connect('postgres://postgres:postgres@localhost/bulletinboard', function(err, client, done) {//change to environment variable later on.
+
   		//add a new entry
   		client.query(`insert into messages 
   			(title, body) 
   			values 
-  			('` + title + `', '` + body + `')`, function(err, result) {
-    			//should print 'INSERT: 1'
+  			('` + req.body.title + `', '` + req.body.body + `')`, function(err, result) {
+    			//in terminal, shows: 'INSERT: 1'
     			console.log(`${result.command}: ${result.rowCount}`);
-
 			    done();
 			    pg.end();
 			});
   	});
-
-	resp.redirect('show')
-
+	resp.redirect('show') //redirects to the page showing all entries
 })
 
 
 //Create a page showing entries:
-app.get ('/show', (request, response) => {
-	response.render('show')
+app.get ('/show', (req, resp) => {
+	// resp.render('show')
 	console.log('\nThe browser will now display the entries.')
+
+	pg.connect('postgres://postgres:postgres@localhost/bulletinboard', function(err, client, done) {//change to environment variable later on.
+
+  		//select all entries
+  		client.query('select * from messages', function(err, result) { 
+  			console.log(result.rows[2].title)
+  			done();
+			pg.end();
+			resp.render('show', {data: result.rows}) //renders to the page showing all entries
+  		});
+  		
+			    
+  	});
+
+
 })
 
+
+// app.get ('/allusers', (request, response) => {
+// 	fs.readFile( __dirname + '/data.json', (error, data) => {
+// 		if (error) throw error
+
+// 			let parsedData = JSON.parse(data)
+// 		console.log('\nAll users will now be displayed in the browser')//informative for terminal-readers
+// 		response.render('allusers', {data: parsedData})//sends the parsedData to the webpage of allusers
+// 	})
+// })
 
 
 
