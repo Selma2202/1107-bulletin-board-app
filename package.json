@@ -2,7 +2,7 @@
   "name": "1107-bulletin-board-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/Selma2202/1107-bulletin-board-app#readme",
   "dependencies": {
-    "pg": "^6.1.0"
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "fs": "0.0.1-security",
+    "pg": "^6.1.0",
+    "pug": "^2.0.0-beta6"
   }
 }
