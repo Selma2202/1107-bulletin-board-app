@@ -1,6 +1,6 @@
 html
 	head
-		title= "Guestbook entry"
+		title= "RATE THE IMAGE"
 		link(href="http://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
 		link(type="text/css" rel="stylesheet" href="materialize-css/dist/css/materialize.min.css"  media="screen,projection")
 		meta(name="viewport" content="width=device-width, initial-scale=1.0")
@@ -11,9 +11,7 @@ html
 				a#logo.brand-logo RATE THE IMAGE
 				ul.right
 					li
-						a( href="/" ) Home
-					li
-						a Contact
+						a( href="/show" ) THE IMAGE HAS BEEN RATED
 		div#header.valign-wrapper
 			div.row.valign
 				div.col.l12
@@ -25,7 +23,7 @@ html
 						div#topcard.card
 							div.card-content
 								div
-									img(id="image", src="/cat1.jpg")
+									img(id="image", src="/pinyin.jpg")
 								br
 								h3 Now rate it!
 								table(id="formtable")
@@ -51,10 +49,22 @@ html
 												input(type='Submit', value='Submit', class='button')
 												input(type="reset" value="Reset", class='button', id='resetbutton')
 
-								a(href='index')
-									p HOME
-								a(href='show')
-									p SHOW ENTRIES
+		footer.page-footer
+			div.container2
+				div.row
+					div.col.l6.s12
+						h5.white-text ABOUT RATE THIS IMAGE
+						p.grey-text.text-lighten-3 RATE THIS IMAGE© is a super useless project created by Selma Dorrestein since guestbooks are stupid and pointless and a website should at least have a goal. Yes, this website only contains one image. Yes, I did most of the ratings myself. 
+					div.col.l4.offset-l2.s12
+						h5.white-text Links
+						ul.grey-text.text-lighten-3
+							li 
+								a( href="/show" ) THE IMAGE HAS BEEN RATED
+							li 
+								a(href="https://github.com/Selma2202") AUTHOR'S GITHUB
+			div.footer-copyright
+				div.container2.grey-text © 2016 Copyright Selma Dorrestein
+
 
 
 
