@@ -1,12 +1,9 @@
+/*Big items*/
 body {
 	background-color: #F8BBD0;
 	display: flex;
 	min-height: 100vh;
 	flex-direction: column;
-}
-
-p {
-	color: #212121;
 }
 
 .container {
@@ -17,18 +14,6 @@ p {
 
 .container2 {
 	margin: auto;
-}
-
-#showTitle {
-	font-weight: bold;	
-}
-
-#resetbutton {
-	margin-left: 30px;
-}
-
-.button {
-	align-items: right;
 }
 
 nav, footer.page-footer {
@@ -58,6 +43,34 @@ main {
 	border-radius: 45px;
 }
 
+/*Text items*/
+h1 {
+	color: #212121;
+	padding-bottom: 100px;
+	/*text-shadow: 0px 0px 50px #C2185B;*/
+	font-weight: bold;
+}
+
+p {
+	color: #212121;
+}
+
+h2 {
+	text-align: center;
+	padding: 20px;
+	text-shadow:0px 0px 10px #C2185B;
+	font-weight: bold;
+	color: #212121;
+}
+
+a {
+	color: #9E9E9E;
+}
+
+#showTitle {
+	font-weight: bold;	
+}
+
 label {
 	color: #757575;
 	font-size: inherit;
@@ -67,22 +80,16 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 	font-size: inherit;
 }
 
+
+/*Other items*/
+#resetbutton {
+	margin-left: 30px;
+}
+
 #image {
-	/*min-height: 400px;*/
 	width: 100%;
 	padding: 10px;
 	border-radius: 40px;
-	/*background-color: grey;*/
-	/*background-image: url('/http://cdn.playbuzz.com/cdn/0079c830-3406-4c05-a5c1-bc43e8f01479/7dd84d70-768b-492b-88f7-a6c70f2db2e9.jpg');*/
-	/*background-position: center;*/
-	/*background-size: cover;*/
-}
-
-h1 {
-	color: #212121;
-	padding-bottom: 100px;
-	/*text-shadow: 0px 0px 50px #C2185B;*/
-	font-weight: bold;
 }
 
 .button {
@@ -93,18 +100,6 @@ h1 {
 	margin: 20px 0px 10px;
 }
 
-a {
-	color: #9E9E9E;
-}
-
 hr {
 	color: #9E9E9E;
-}
-
-h2 {
-	text-align: center;
-	padding: 20px;
-	text-shadow:0px 0px 10px #C2185B;
-	font-weight: bold;
-	color: #212121;
 }
