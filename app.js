@@ -55,10 +55,8 @@ app.get ('/show', (req, resp) => {
   			client.query('select * from messages order by datenow desc', function(err, result) { 
   			done();
 			pg.end();
-			let reactions = result.rows 
-			//I have made a variable of it, since I want to send more data, namely also an average. maybe I should put that in a variable as well, so that's why I haven't yet.
 
-			resp.render('show', {data: reactions}) //renders to the page showing all entries
+			resp.render('show', {data: result.rows}) //renders to the page showing all entries
   		});
 
   	// 	client.query('select avg(rating) from messages;', function(err, result) { 
