@@ -100,3 +100,11 @@ a {
 hr {
 	color: #9E9E9E;
 }
+
+h2 {
+	text-align: center;
+	padding: 20px;
+	text-shadow:0px 0px 10px #C2185B;
+	font-weight: bold;
+	color: #212121;
+}

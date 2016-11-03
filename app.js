@@ -42,6 +42,12 @@ app.post ('/index', (req, resp) => {
 
 
 //Create a page showing entries:
+
+//helper function for rounding number up
+let roundDecimal 	= (number) => {
+	return Math.round (number * 100 ) / 100
+}
+
 app.get ('/show', (req, resp) => {
 	// resp.render('show')
 	console.log('\nThe browser will now display the entries.')
@@ -50,17 +56,19 @@ app.get ('/show', (req, resp) => {
 
   		//select all entries
   			client.query('select * from messages order by datenow desc', function(err, result) { 
+  			
+  			var sumRatings = 0
+  			for (var i = 0; i < result.rows.length; i++) {
+  				sumRatings =  result.rows[i].rating + sumRatings
+  			}
+  			var avgRatings = sumRatings / result.rows.length
+  			// console.log (roundDecimal(avgRatings))
+
   			done();
 			pg.end();
 
-			resp.render('show', {data: result.rows}) //renders to the page showing all entries
+			resp.render('show', {data: result.rows, average: (roundDecimal(avgRatings))}) //renders to the page showing all entries
   		});
-
-  	// 	client.query('select avg(rating) from messages;', function(err, result) { 
-  	// 		done();
-			// pg.end();
-			// resp.render('show', {avg: result}) //renders to the page showing all entries
-  	// 	});
   		
 			    
   	});
