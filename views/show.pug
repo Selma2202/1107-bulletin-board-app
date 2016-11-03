@@ -11,7 +11,7 @@ html
 				a#logo.brand-logo THE IMAGE HAS BEEN RATED
 				ul.right
 					li
-						a( href="/" ) RATE THE IMAGE AGAIN
+						a( href="/index" ) RATE THE IMAGE AGAIN
 		div#header.valign-wrapper
 			div.row.valign
 				div.col.l12
@@ -32,8 +32,10 @@ html
 								//- 	p #{avg}
 
 								each thing in data
-									p#showTitle #{thing.title} - #{thing.rating}
+									h4#showTitle #{thing.title} - #{thing.rating}
 									p#showBody #{thing.body}
+									br
+									hr
 									br
 		footer.page-footer
 			div.container2

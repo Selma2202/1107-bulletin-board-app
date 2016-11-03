@@ -14,22 +14,19 @@ app.use(express.static(__dirname + "/static"))
 app.set ('view engine', 'pug')
 app.set ('views', __dirname + '/views')
 
+//make variable connecting to database
+let connectionString = 'postgres://' + process.env.POSTGRES_USER + ':' + process.env.POSTGRES_PASSWORD + '@localhost/bulletinboard';
 
-//Create an index page:
-// app.get ('/index', (request, response) => {
-// 	response.render('index')
-// 	console.log('\nThe browser will now display the home page.')
-// })
 
 //Create a home/form page:
-app.get ('/', (request, response) => {
+app.get ('/index', (request, response) => {
 	response.render('index')
 	console.log('\nThe browser will now display the home page.')
 })
 
 //Make home/form page work:
-app.post ('/', (req, resp) => {
-	pg.connect('postgres://postgres:postgres@localhost/bulletinboard', function(err, client, done) {//change to environment variable later on.
+app.post ('/index', (req, resp) => {
+	pg.connect(connectionString, function(err, client, done) {//change to environment variable later on.
 		if (err) throw err
   		//add a new entry
   		client.query("insert into messages (title, body, datenow, rating) values ($1,$2,$3, $4)", [req.body.title, req.body.body, Date.now(), req.body.rating], function(err, result) {
@@ -49,7 +46,7 @@ app.get ('/show', (req, resp) => {
 	// resp.render('show')
 	console.log('\nThe browser will now display the entries.')
 
-	pg.connect('postgres://postgres:postgres@localhost/bulletinboard', function(err, client, done) {//change to environment variable later on.
+	pg.connect(connectionString, function(err, client, done) {//change to environment variable later on.
 
   		//select all entries
   			client.query('select * from messages order by datenow desc', function(err, result) { 
